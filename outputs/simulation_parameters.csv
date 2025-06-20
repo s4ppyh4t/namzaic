@@ -1,0 +1,8 @@
+Parameter,Value
+Simulation Duration (minutes),2880
+Number of Simulations per Loader,20
+Number of Loaders per Type,dependent on type of loader
+Number of Big Trucks,3
+Number of Small Trucks,3
+Big Truck Capacity,50
+Small Truck Capacity,20

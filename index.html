@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mosaic Custom Component Beta</title>
+        <meta name="description" content="Mosaic Art for Namz">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/src/css/global.css">
+        <script type="module" src="/src/js/components/MozTile.js" async defer></script>
+        <script type="module" src="/src/js/components/MozFrame.js" async defer></script>
+        <script type="module" src="/src/js/components/TwoColumnBox.js" async defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oi&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+        <script>
+            function showGame(e) {
+                let clickSound = document.querySelector("#clickSound");
+                if (clickSound) {
+                        clickSound.currentTime = 0;
+                        clickSound.volume = 0.5;
+                        clickSound.play();
+                }
+                document.querySelector("two-column").setAttribute("style", "--split-ratio: 3.5");
+                document.querySelector("two-column").classList.add('game-started');
+                document.querySelector("two-column").shadowRoot.querySelectorAll(".mf-innerDiv").forEach(element => element.classList.add("apply-mask"));
+                document.querySelector(".gbl-ShowGameBtn").setAttribute("style", "display: none;");
+                let guideText = document.querySelector(".gbl-GuideTxt");
+                guideText.setAttribute("style", "opacity: 0;");
+                setTimeout(() => {
+                    document.querySelector("moz-frame").style.display = "block";
+                    guideText.innerHTML = "Your task is pretty simple. You see Mr. Namz face, you click on it to advance to the next stage."
+                }, 600);
+                setTimeout(() => {
+                    document.querySelector("moz-frame").setAttribute("style", "display: block; transform: scale(1);");
+                    guideText.setAttribute("style", "opacity: 1;");
+                }, 700);
+            }   
+        </script>
+    </head>
+    <body>
+        <main>
+            <canvas id="hiddenCanvas" style="display:none;"></canvas>
+            <img title="bruh" id="sourceImage" src="/static/img/nice.jpg" style="display:none;">
+            <audio id="clickSound" src="/static/audio/tap.mp3" preload="auto"></audio>
+            <audio id="wrongSound" src="/static/audio/wrong.mp3" preload="auto"></audio>
+            <audio id="bgMusic" src="/static/audio/BOAF_REM.mp3" preload="auto"></audio>
+            <div class="gbl-MainArea">
+                <two-column>
+                    <slot slot="left-content">
+                        <h2 class="gbl-MainTitle">Where's <br/><span>Mr. Namz?</span></h2>
+                        <p class="gbl-GuideTxt">Let's find Mr. Namz together!</p>
+                    </slot>
+                    <slot slot="right-content">
+                        <button class="gbl-ShowGameBtn" onclick="showGame()">Play</button>
+                        <moz-frame></moz-frame>
+                    </slot>
+                </two-column>
+            </div>
+        </main>
+        <script>
+            let parsedQuotes = {};
+
+            fetch("/static/data/guideTexts.json")
+            .then(
+                response => response.json()
+            )
+            .then(
+                data => parsedQuotes = data
+            );
+
+            document.querySelector("two-column").addEventListener("next-move", changeContentListener);
+
+            function changeContentListener(e) {
+                let guideText = document.querySelector(".gbl-GuideTxt");
+                guideText.setAttribute("style", "opacity: 0;");
+                
+                let audioBg = document.querySelector("#bgMusic");
+
+                if (e.detail.currentSize >= 4) {
+                    let newVolume = Math.min(Math.log1p((e.detail.currentSize - 4) / (e.detail.maxSize - 4)),1);
+                    if (audioBg.paused || audioBg.ended) { // Check if it's paused OR has finished playing
+                        audioBg.play();
+                    }
+                    audioBg.volume = newVolume; 
+                }
+                let clickSound = document.querySelector("#clickSound");
+                let wrongSound = document.querySelector("#wrongSound");
+                if (clickSound && e.detail.isCorrect && e.detail.maxSize != e.detail.currentSize && !e.detail.recall) {
+                        clickSound.currentTime = 0;
+                        clickSound.volume = 0.5;
+                        clickSound.play();
+                } else if (wrongSound && !e.detail.isCorrect && e.detail.maxSize != e.detail.currentSize && !e.detail.recall) {
+                    wrongSound.currentTime = 0;
+                    wrongSound.volume = 0.5;
+                    wrongSound.play();
+                }
+                
+                setTimeout(() => {
+                    let textContent = "";
+                    if (e.detail.isCorrect) {
+                        textContent = parsedQuotes['correct'][e.detail.currentSize - 1];
+                    }
+
+                    if (e.detail.isCorrect == false && e.detail.maxSize > e.detail.currentSize) {
+                        
+                        textContent = parsedQuotes['incorrect'][Math.min(Math.floor(parsedQuotes['incorrect'].length*Math.random()), parsedQuotes['incorrect'].length - 1)];
+                    }
+                    
+                    if (e.detail.isCorrect && e.detail.maxSize == e.detail.currentSize) {
+                        textContent = parsedQuotes['waiting'][Math.min(Math.floor(parsedQuotes['waiting'].length*Math.random()), parsedQuotes['waiting'].length - 1)];
+                    }
+
+                    // LOGIC FOR END-GAME. CONTAIN THEM HERE!
+                    if (e.detail.isCorrect == false && e.detail.maxSize == e.detail.currentSize) {
+                        document.querySelector('two-column').shadowRoot.querySelector('.mf-innerDiv__L').setAttribute('style', 'flex: 0; width: 0; padding: 0;');
+                        document.querySelector('slot[slot="left-content"]').setAttribute('style', 'display: none;');
+                        
+                        setTimeout(() => {
+                            document.querySelector('two-column').shadowRoot.querySelector('.mf-innerDiv__R').setAttribute('style', 'border-radius: 0;');
+                            document.querySelector('two-column').shadowRoot.querySelector('.mf-outerDiv').setAttribute('style', 'padding: 0;');
+                            document.querySelector('.gbl-MainArea').classList.add("finish");
+
+                        }, 400)
+                    }
+                    guideText.textContent = textContent;
+                    guideText.setAttribute("style", "opacity: 1;");
+
+                    if (e.detail.isCorrect == false && e.detail.maxSize > e.detail.currentSize) {
+                        setTimeout(() => {
+                            changeContentListener({detail: {isCorrect: true, currentSize: e.detail.currentSize - 1, maxSize: e.detail.maxSize, recall: true}});
+                        }, 2000);
+                    }
+                }, 400)
+            }
+        </script>
+    </body>
+</html>

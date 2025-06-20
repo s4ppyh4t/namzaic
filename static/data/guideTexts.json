@@ -1,0 +1,29 @@
+{
+    "correct" : [
+        "And.. only select the tile that has Mr. Namz's face. Not the robots.. *ugh clankers*",
+        "That's right! You've got the idea!",
+        "Mr. Namz has been playing this game for a while, trying to find Namz-selves. It may have started out easy...",
+        "But things get harder, and harder",
+        "Mr. Namz wants to set Namz-selves out, and try to distinct Namz's identity from many peers (the clankers).",
+        "Mr. Namz learns to improve Mr. Namz's skills, in the search for Mr. Namz 'true' expertise...",
+        "An endless search for the right individuality",
+        "An endless search for Mr. Namz's true purpose.",
+        "An endless search against time. Mr. Namz kept on looking..",
+        "But, this year, this time around, maybe Mr. Namz can take a step back..",
+        "It may feel like Mr. Namz hasn't found what Mr. Namz want, but maybe Mr Namz already got what Mr. Namz need",
+        "Mr. Namz just needs to look at your whole self, in a different way..",
+        "What Mr. Namz has been building, for your whole life.."
+    ],
+    "incorrect" : [
+        "Hmm.. maybe try again",
+        "That... doesn't look like Mr. Namz, does it?",
+        "Hm... yea that's not it..",
+        "What the.. that's definitely not it.."
+    ],
+    "waiting" : [
+        "Take a look around...",
+        "Sometimes, it's better to stop, and have a look at what you've achieved",
+        "Sometimes, it's better to stop looking after a while..",
+        "Sometimes, you've already found what you need!"
+    ]
+}
