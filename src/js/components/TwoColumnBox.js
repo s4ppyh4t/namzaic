@@ -36,12 +36,12 @@ template.innerHTML =
                 flex: calc(10 - var(--ratio));
                 transition: all 0.4s cubic-bezier(0.8, -0.4, 0.32, 1.32);
                 
-                -webkit-mask-image: url('/static/img/left-frame.svg');
+                -webkit-mask-image: url('static/img/left-frame.svg');
                 -webkit-mask-repeat: no-repeat;
                 -webkit-mask-size: contain;
                 -webkit-mask-position: center;
 
-                mask-image: url('/static/img/left-frame.svg');
+                mask-image: url('static/img/left-frame.svg');
                 mask-repeat: no-repeat;
                 mask-size: contain;
                 mask-position: center;
