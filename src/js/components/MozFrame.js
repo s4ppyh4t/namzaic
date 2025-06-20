@@ -35,12 +35,12 @@ template.innerHTML =
                 grid-template-rows: repeat(var(--size), 1fr);
                 
                 /* WebKit compatibility (Safari, Chrome) */
-                -webkit-mask-image: url('/static/img/bound.svg');
+                -webkit-mask-image: url('static/img/bound.svg');
                 -webkit-mask-repeat: no-repeat;
                 -webkit-mask-size: cover;
                 -webkit-mask-position: center;
 
-                mask-image: url('/static/img/bound.svg');
+                mask-image: url('static/img/bound.svg');
                 mask-repeat: no-repeat;
                 mask-size: cover;
                 mask-position: center;
@@ -82,7 +82,7 @@ template.innerHTML =
                     width: calc(-12dvw + ${FRAME_SIZE}dvh);
                     height: calc(-12dvw + ${FRAME_SIZE}dvh);
                     border-radius: calc(2rem/var(--size));
-                    background: url('/static/img/nice.jpg') center/cover no-repeat;
+                    background: url('static/img/nice.jpg') center/cover no-repeat;
                     transform: translate(-50%, -50%);
                     transition: opacity 0.4s ease;
                     pointer-events: none;
@@ -98,7 +98,7 @@ template.innerHTML =
                     width: calc(-12dvw + ${FRAME_SIZE}dvh);
                     height: calc(-12dvw + ${FRAME_SIZE}dvh);
                     border-radius: 2dvw;
-                    background: url('/static/img/nice.jpg') center/cover no-repeat;
+                    background: url('static/img/nice.jpg') center/cover no-repeat;
                     transform: translate(-50%, -50%);
                     transition: opacity 0.4s ease;
                     pointer-events: all;
@@ -122,37 +122,37 @@ template.innerHTML =
             }
 
             @keyframes end-game {
-                0% { background-image: url('/static/img/nice.jpg'); opacity: 1; }
-                9% { background-image: url('/static/img/nice.jpg'); opacity: 1;}
-                9.20% { background-image: url('/static/img/nice.jpg'); opacity: 0;}
-                10% { background-image: url('/static/img/namz2.jpg'); opacity: 1; }
-                19% { background-image: url('/static/img/namz2.jpg'); opacity: 1; }
-                19.20% { background-image: url('/static/img/namz2.jpg'); opacity: 0;}
-                20% { background-image: url('/static/img/namz3.jpg'); opacity: 1; }
-                29% { background-image: url('/static/img/namz3.jpg'); opacity: 1; }
-                29.20% { background-image: url('/static/img/namz3.jpg'); opacity: 0;}
-                30% { background-image: url('/static/img/namz5.jpg'); opacity: 1; }
-                39% { background-image: url('/static/img/namz5.jpg'); opacity: 1; }
-                39.20% { background-image: url('/static/img/namz5.jpg'); opacity: 0;}
-                40% { background-image: url('/static/img/namz6.jpg'); opacity: 1; }
-                49% { background-image: url('/static/img/namz6.jpg'); opacity: 1; }
-                49.20% { background-image: url('/static/img/namz6.jpg'); opacity: 0;}
-                50% { background-image: url('/static/img/namz8.jpg'); opacity: 1; }
-                59% { background-image: url('/static/img/namz8.jpg'); opacity: 1; }
-                59.20% { background-image: url('/static/img/namz8.jpg'); opacity: 0;}
-                60% { background-image: url('/static/img/namz15.jpeg'); opacity: 1; }
-                69% { background-image: url('/static/img/namz15.jpeg'); opacity: 1; }
-                69.20% { background-image: url('/static/img/namz15.jpeg'); opacity: 0;}
-                70% { background-image: url('/static/img/namz11.jpg'); opacity: 1; }
-                79% { background-image: url('/static/img/namz11.jpg'); opacity: 1; }
-                79.20% { background-image: url('/static/img/namz11.jpg'); opacity: 0;}
-                80% { background-image: url('/static/img/namz12.jpg'); opacity: 1; }
-                89% { background-image: url('/static/img/namz12.jpg'); opacity: 1; }
-                89.20% { background-image: url('/static/img/namz12.jpg'); opacity: 0;}
-                90% { background-image: url('/static/img/namz14.jpg'); opacity: 1; }
-                99% { background-image: url('/static/img/namz14.jpg'); opacity: 1; }
-                99.20% { background-image: url('/static/img/namz14.jpg'); opacity: 0;}
-                100% { background-image: url('/static/img/nice.jpg'); opacity: 1; }
+                0% { background-image: url('static/img/nice.jpg'); opacity: 1; }
+                9% { background-image: url('static/img/nice.jpg'); opacity: 1;}
+                9.20% { background-image: url('static/img/nice.jpg'); opacity: 0;}
+                10% { background-image: url('static/img/namz2.jpg'); opacity: 1; }
+                19% { background-image: url('static/img/namz2.jpg'); opacity: 1; }
+                19.20% { background-image: url('static/img/namz2.jpg'); opacity: 0;}
+                20% { background-image: url('static/img/namz3.jpg'); opacity: 1; }
+                29% { background-image: url('static/img/namz3.jpg'); opacity: 1; }
+                29.20% { background-image: url('static/img/namz3.jpg'); opacity: 0;}
+                30% { background-image: url('static/img/namz5.jpg'); opacity: 1; }
+                39% { background-image: url('static/img/namz5.jpg'); opacity: 1; }
+                39.20% { background-image: url('static/img/namz5.jpg'); opacity: 0;}
+                40% { background-image: url('static/img/namz6.jpg'); opacity: 1; }
+                49% { background-image: url('static/img/namz6.jpg'); opacity: 1; }
+                49.20% { background-image: url('static/img/namz6.jpg'); opacity: 0;}
+                50% { background-image: url('static/img/namz8.jpg'); opacity: 1; }
+                59% { background-image: url('static/img/namz8.jpg'); opacity: 1; }
+                59.20% { background-image: url('static/img/namz8.jpg'); opacity: 0;}
+                60% { background-image: url('static/img/namz15.jpeg'); opacity: 1; }
+                69% { background-image: url('static/img/namz15.jpeg'); opacity: 1; }
+                69.20% { background-image: url('static/img/namz15.jpeg'); opacity: 0;}
+                70% { background-image: url('static/img/namz11.jpg'); opacity: 1; }
+                79% { background-image: url('static/img/namz11.jpg'); opacity: 1; }
+                79.20% { background-image: url('static/img/namz11.jpg'); opacity: 0;}
+                80% { background-image: url('static/img/namz12.jpg'); opacity: 1; }
+                89% { background-image: url('static/img/namz12.jpg'); opacity: 1; }
+                89.20% { background-image: url('static/img/namz12.jpg'); opacity: 0;}
+                90% { background-image: url('static/img/namz14.jpg'); opacity: 1; }
+                99% { background-image: url('static/img/namz14.jpg'); opacity: 1; }
+                99.20% { background-image: url('static/img/namz14.jpg'); opacity: 0;}
+                100% { background-image: url('static/img/nice.jpg'); opacity: 1; }
             }
 
             @keyframes end-game-back {
@@ -204,7 +204,7 @@ template.innerHTML =
 
 class MozFrame extends HTMLElement {
     size = 1;
-    maxSize = 2;
+    maxSize = 14;
     colorArray = this.processImage();
     
     constructor() {
@@ -360,7 +360,7 @@ class MozFrame extends HTMLElement {
 
         // feed the urls
         for (let i = 0; i < this.size ** 2; i++) {
-            imageUrls.push(i != randomPosition ? `/static/img/${Math.ceil(NUM_IMG*Math.random())}.png` : '../static/img/namz.png');
+            imageUrls.push(i != randomPosition ? `static/img/${Math.ceil(NUM_IMG*Math.random())}.png` : 'static/img/namz.png');
         }
 
         this.preloadImagesWithRetries(imageUrls).then(() => {

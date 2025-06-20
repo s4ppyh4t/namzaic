@@ -6,11 +6,10 @@
         <title>Mosaic Custom Component Beta</title>
         <meta name="description" content="Mosaic Art for Namz">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <base href="/[repo]/">
-        <link rel="stylesheet" href="/src/css/global.css">
-        <script type="module" src="/src/js/components/MozTile.js" async defer></script>
-        <script type="module" src="/src/js/components/MozFrame.js" async defer></script>
-        <script type="module" src="/src/js/components/TwoColumnBox.js" async defer></script>
+        <link rel="stylesheet" href="src/css/global.css">
+        <script type="module" src="src/js/components/MozTile.js" async defer></script>
+        <script type="module" src="src/js/components/MozFrame.js" async defer></script>
+        <script type="module" src="src/js/components/TwoColumnBox.js" async defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oi&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
@@ -42,10 +41,10 @@
     <body>
         <main>
             <canvas id="hiddenCanvas" style="display:none;"></canvas>
-            <img title="bruh" id="sourceImage" src="/static/img/nice.jpg" style="display:none;">
-            <audio id="clickSound" src="/static/audio/tap.mp3" preload="auto"></audio>
-            <audio id="wrongSound" src="/static/audio/wrong.mp3" preload="auto"></audio>
-            <audio id="bgMusic" src="/static/audio/BOAF_REM.mp3" preload="auto"></audio>
+            <img title="bruh" id="sourceImage" src="static/img/nice.jpg" style="display:none;">
+            <audio id="clickSound" src="static/audio/tap.mp3" preload="auto"></audio>
+            <audio id="wrongSound" src="static/audio/wrong.mp3" preload="auto"></audio>
+            <audio id="bgMusic" src="static/audio/BOAF_REM.mp3" preload="auto"></audio>
             <div class="gbl-MainArea">
                 <two-column>
                     <slot slot="left-content">
@@ -62,7 +61,7 @@
         <script>
             let parsedQuotes = {};
 
-            fetch("/static/data/guideTexts.json")
+            fetch("static/data/guideTexts.json")
             .then(
                 response => response.json()
             )
