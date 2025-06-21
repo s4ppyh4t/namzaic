@@ -20,7 +20,7 @@ template.innerHTML =
 
             .mf-innerDiv {
                 box-sizing: border-box;
-                padding: 6dvw;
+                padding: 4.8dvw;
                 height: ${FRAME_SIZE}dvh;
                 width: ${FRAME_SIZE}dvh;
                 background-color: var(--fg);
@@ -45,7 +45,9 @@ template.innerHTML =
                 mask-size: cover;
                 mask-position: center;
                 
-                
+                &.finish {
+                    border-radius: 2dvw;
+                }
 
                 &::before {
                     content: var(--size-str);
@@ -80,9 +82,9 @@ template.innerHTML =
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    width: calc(-12dvw + ${FRAME_SIZE}dvh);
-                    height: calc(-12dvw + ${FRAME_SIZE}dvh);
-                    border-radius: calc(2rem/var(--size));
+                    width: calc(-9.6dvw + ${FRAME_SIZE}dvh);
+                    height: calc(-9.6dvw + ${FRAME_SIZE}dvh);
+                    border-radius: 2dvw;
                     background: url('static/img/nice.jpg') center/cover no-repeat;
                     transform: translate(-50%, -50%);
                     transition: opacity 0.4s ease;
@@ -96,8 +98,8 @@ template.innerHTML =
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    width: calc(-12dvw + ${FRAME_SIZE}dvh);
-                    height: calc(-12dvw + ${FRAME_SIZE}dvh);
+                    width: calc(-9.6dvw + ${FRAME_SIZE}dvh);
+                    height: calc(-9.6dvw + ${FRAME_SIZE}dvh);
                     border-radius: 2dvw;
                     background: url('static/img/nice.jpg') center/cover no-repeat;
                     transform: translate(-50%, -50%);
