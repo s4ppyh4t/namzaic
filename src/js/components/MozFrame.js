@@ -52,17 +52,18 @@ template.innerHTML =
                     box-sizing: border-box;
                     position: absolute;
                     top: 0%;
-                    left: 0%;
+                    left: 50%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 100%;
+                    width: 50%;
                     height: 100%;
                     color: #000;
                     font-size: 6dvw;
                     font-weight: 100;
                     text-align: center;
                     opacity: 0.6;
+                    transform: translate(-50%, 0);
 
                     pointer-events: none;
                 }
@@ -123,68 +124,68 @@ template.innerHTML =
 
             @keyframes end-game {
                 0% { background-image: url('static/img/nice.jpg'); opacity: 1; }
-                9% { background-image: url('static/img/nice.jpg'); opacity: 1;}
+                8% { background-image: url('static/img/nice.jpg'); opacity: 1;}
                 9.20% { background-image: url('static/img/nice.jpg'); opacity: 0;}
                 10% { background-image: url('static/img/namz2.jpg'); opacity: 1; }
-                19% { background-image: url('static/img/namz2.jpg'); opacity: 1; }
+                18% { background-image: url('static/img/namz2.jpg'); opacity: 1; }
                 19.20% { background-image: url('static/img/namz2.jpg'); opacity: 0;}
                 20% { background-image: url('static/img/namz3.jpg'); opacity: 1; }
-                29% { background-image: url('static/img/namz3.jpg'); opacity: 1; }
+                28% { background-image: url('static/img/namz3.jpg'); opacity: 1; }
                 29.20% { background-image: url('static/img/namz3.jpg'); opacity: 0;}
                 30% { background-image: url('static/img/namz5.jpg'); opacity: 1; }
-                39% { background-image: url('static/img/namz5.jpg'); opacity: 1; }
+                38% { background-image: url('static/img/namz5.jpg'); opacity: 1; }
                 39.20% { background-image: url('static/img/namz5.jpg'); opacity: 0;}
                 40% { background-image: url('static/img/namz6.jpg'); opacity: 1; }
-                49% { background-image: url('static/img/namz6.jpg'); opacity: 1; }
+                48% { background-image: url('static/img/namz6.jpg'); opacity: 1; }
                 49.20% { background-image: url('static/img/namz6.jpg'); opacity: 0;}
                 50% { background-image: url('static/img/namz8.jpg'); opacity: 1; }
-                59% { background-image: url('static/img/namz8.jpg'); opacity: 1; }
+                58% { background-image: url('static/img/namz8.jpg'); opacity: 1; }
                 59.20% { background-image: url('static/img/namz8.jpg'); opacity: 0;}
                 60% { background-image: url('static/img/namz15.jpeg'); opacity: 1; }
-                69% { background-image: url('static/img/namz15.jpeg'); opacity: 1; }
+                68% { background-image: url('static/img/namz15.jpeg'); opacity: 1; }
                 69.20% { background-image: url('static/img/namz15.jpeg'); opacity: 0;}
                 70% { background-image: url('static/img/namz11.jpg'); opacity: 1; }
-                79% { background-image: url('static/img/namz11.jpg'); opacity: 1; }
+                78% { background-image: url('static/img/namz11.jpg'); opacity: 1; }
                 79.20% { background-image: url('static/img/namz11.jpg'); opacity: 0;}
                 80% { background-image: url('static/img/namz12.jpg'); opacity: 1; }
-                89% { background-image: url('static/img/namz12.jpg'); opacity: 1; }
+                88% { background-image: url('static/img/namz12.jpg'); opacity: 1; }
                 89.20% { background-image: url('static/img/namz12.jpg'); opacity: 0;}
                 90% { background-image: url('static/img/namz14.jpg'); opacity: 1; }
-                99% { background-image: url('static/img/namz14.jpg'); opacity: 1; }
+                98% { background-image: url('static/img/namz14.jpg'); opacity: 1; }
                 99.20% { background-image: url('static/img/namz14.jpg'); opacity: 0;}
                 100% { background-image: url('static/img/nice.jpg'); opacity: 1; }
             }
 
             @keyframes end-game-back {
                 0% { content: ""; }
-                9% { content: ""; }
+                8% { content: ""; }
                 9.20% { content: ""; content: "mr namz on namz"; }
                 10% { content: ""; }
-                19% { content: ""; }
+                18% { content: ""; }
                 19.20% { content: ""; content: "mr namz hot"; }
                 20% { content: ""; }
-                29% { content: ""; }
+                28% { content: ""; }
                 29.20% { content: ""; content: "mr namz carrot"; }
                 30% { content: ""; }
-                39% { content: ""; }
+                38% { content: ""; }
                 39.20% { content: ""; content: "mr namz w/ doggos"; }
                 40% { content: ""; }
-                49% { content: ""; }
+                48% { content: ""; }
                 49.20% { content: ""; content: "mr namz w/ Ellie"; }
                 50% { content: ""; }
-                59% { content: ""; }
+                58% { content: ""; }
                 59.20% { content: ""; content: "mr namz call centre"; }
                 60% { content: ""; }
-                69% { content: ""; }
+                68% { content: ""; }
                 69.20% { content: ""; content: "mr namz aghghghhg"; }
                 70% { content: ""; }
-                79% { content: ""; }
+                78% { content: ""; }
                 79.20% { content: ""; content: "mr namz scari"; }
                 80% { content: ""; }
-                89% { content: ""; }
+                88% { content: ""; }
                 89.20% { content: ""; content: "mr namz gooner"; }
                 90% { content: ""; }
-                99% { content: ""; }
+                98% { content: ""; }
                 99.20% { content: ""; content: "mr namz pretty"; }
                 100% { content: ""; }
             }

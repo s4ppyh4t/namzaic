@@ -61,6 +61,11 @@
         </main>
         <script>
             let parsedQuotes = {};
+            let audioBg = document.querySelector("#bgMusic");
+            audioBg.addEventListener('ended', (e) => {
+                e.target.currentTime = 0;
+                e.target.play();
+            }, false);
 
             fetch("static/data/guideTexts.json")
             .then(
@@ -72,18 +77,39 @@
 
             document.querySelector("two-column").addEventListener("next-move", changeContentListener);
 
+            // Add the fade function
+            function fadeVolume(audioElement, targetVolume, duration = 500) {
+                const startVolume = audioElement.volume;
+                const volumeChange = targetVolume - startVolume;
+                const steps = 30;
+                const stepTime = duration / steps;
+                const stepSize = volumeChange / steps;
+                
+                let currentStep = 0;
+                
+                const interval = setInterval(() => {
+                    currentStep++;
+                    audioElement.volume = Math.max(0, Math.min(1, startVolume + (stepSize * currentStep)));
+                    
+                    if (currentStep >= steps) {
+                        audioElement.volume = targetVolume;
+                        clearInterval(interval);
+                    }
+                }, stepTime);
+            }
+
             function changeContentListener(e) {
                 let guideText = document.querySelector(".gbl-GuideTxt");
                 guideText.setAttribute("style", "opacity: 0;");
-                
-                let audioBg = document.querySelector("#bgMusic");
+                const triggerPnt = 6;
 
-                if (e.detail.currentSize >= 4) {
-                    let newVolume = Math.min(Math.log1p((e.detail.currentSize - 4) / (e.detail.maxSize - 4)),1);
+                if (e.detail.currentSize >= triggerPnt) {
+                    let newVolume = Math.min(Math.log1p((e.detail.currentSize - triggerPnt) / (e.detail.maxSize - triggerPnt)),1);
                     if (audioBg.paused || audioBg.ended) { // Check if it's paused OR has finished playing
+                        audioBg.volume = 0;
                         audioBg.play();
                     }
-                    audioBg.volume = newVolume; 
+                    fadeVolume(audioBg, newVolume, 800);
                 }
                 let clickSound = document.querySelector("#clickSound");
                 let wrongSound = document.querySelector("#wrongSound");
